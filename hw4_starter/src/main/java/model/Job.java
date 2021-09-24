@@ -6,8 +6,10 @@ import java.util.Objects;
 // TODO 3: Similar to what was done in Employer class, annotate Job class using
 //  ORMLite annotations so that you can easily create the "jobs" table in Main.java
 //  using ORMLite's TableUtil class.
+
 public class Job {
 
+    private int id;
     private String title;
     private Date datePosted;
     private Date deadline;
@@ -33,6 +35,12 @@ public class Job {
         this.payAmount = payAmount;
         this.employer = employer;
     }
+
+    public int getId() {
+        return id;
+    }
+
+
 
     public String getTitle() {
         return title;
@@ -74,18 +82,7 @@ public class Job {
         return employer;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Job job = (Job) o;
-        return fullTime == job.fullTime && salaryBased == job.salaryBased && payAmount == job.payAmount && employer.equals(job.employer) && title.equals(job.title) && Objects.equals(datePosted, job.datePosted) && Objects.equals(deadline, job.deadline) && Objects.equals(domain, job.domain) && Objects.equals(location, job.location) && Objects.equals(requirements, job.requirements);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(title, datePosted, deadline, domain, location, fullTime, salaryBased, requirements, payAmount, employer);
-    }
+    public void setId(int id) { this.id = id; }
 
     public void setTitle(String title) {
         this.title = title;
@@ -125,5 +122,18 @@ public class Job {
 
     public void setEmployer(Employer employer) {
         this.employer = employer;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return id == job.id && fullTime == job.fullTime && salaryBased == job.salaryBased && payAmount == job.payAmount && title.equals(job.title) && Objects.equals(datePosted, job.datePosted) && Objects.equals(deadline, job.deadline) && Objects.equals(domain, job.domain) && Objects.equals(location, job.location) && Objects.equals(requirements, job.requirements) && Objects.equals(employer, job.employer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, datePosted, deadline, domain, location, fullTime, salaryBased, requirements, payAmount, employer);
     }
 }
