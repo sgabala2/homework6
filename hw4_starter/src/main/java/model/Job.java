@@ -17,11 +17,11 @@ public class Job {
     private boolean salaryBased;
     private String requirements;
     private int payAmount;
-    private int employerId;
+    private Employer employer;
 
     public Job() {
     }
-    public Job(String title, Date datePosted, Date deadline, String domain, String location, boolean fullTime, boolean salaryBased, String requirements, int payAmount, int employerId) {
+    public Job(String title, Date datePosted, Date deadline, String domain, String location, boolean fullTime, boolean salaryBased, String requirements, int payAmount, Employer employer) {
         this.title = title;
         this.datePosted = datePosted;
         this.deadline = deadline;
@@ -31,7 +31,7 @@ public class Job {
         this.salaryBased = salaryBased;
         this.requirements = requirements;
         this.payAmount = payAmount;
-        this.employerId = employerId;
+        this.employer = employer;
     }
 
     public String getTitle() {
@@ -70,8 +70,8 @@ public class Job {
         return payAmount;
     }
 
-    public int getEmployerId() {
-        return employerId;
+    public Employer getEmployer() {
+        return employer;
     }
 
     @Override
@@ -79,12 +79,12 @@ public class Job {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
-        return fullTime == job.fullTime && salaryBased == job.salaryBased && payAmount == job.payAmount && employerId == job.employerId && title.equals(job.title) && Objects.equals(datePosted, job.datePosted) && Objects.equals(deadline, job.deadline) && Objects.equals(domain, job.domain) && Objects.equals(location, job.location) && Objects.equals(requirements, job.requirements);
+        return fullTime == job.fullTime && salaryBased == job.salaryBased && payAmount == job.payAmount && employer.equals(job.employer) && title.equals(job.title) && Objects.equals(datePosted, job.datePosted) && Objects.equals(deadline, job.deadline) && Objects.equals(domain, job.domain) && Objects.equals(location, job.location) && Objects.equals(requirements, job.requirements);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, datePosted, deadline, domain, location, fullTime, salaryBased, requirements, payAmount, employerId);
+        return Objects.hash(title, datePosted, deadline, domain, location, fullTime, salaryBased, requirements, payAmount, employer);
     }
 
     public void setTitle(String title) {
@@ -123,7 +123,7 @@ public class Job {
         this.payAmount = payAmount;
     }
 
-    public void setEmployerId(int employerId) {
-        this.employerId = employerId;
+    public void setEmployer(Employer employer) {
+        this.employer = employer;
     }
 }
