@@ -126,10 +126,10 @@ public class EmployerTest {
         //      3) updating an employer's name that is already exists in the table succeeds
         //      4) updating an employer's summary that already exists in the table succeeds
         //  D(elete)
-        //      1) Deleting an employer record (using the "delete" function of ORMLite) based on an id that does not exist fails even if the name exists
+        //      1) Deleting an employer record (using the "delete" function of ORMLite) based on an id that does not exist does not delete any rows even if a row with the same exact name exists
         //      2) Deleting an employer record (using the "delete" function of ORMLite) based on an id that exists succeeds even if the names are different
         //      3) Deleting a collection of employers at once (using the "delete" function of ORMLite) removes all those employers that exist from the table
-        //      4) Deleting a collection of employers at once (using the "delete" function of ORMLite) where none of them exists does not remove anything from the table
+        //      4) Deleting a collection of employers at once (using the "delete" function of ORMLite) where none of them exists does not remove any rows from the table
     }
 
 
