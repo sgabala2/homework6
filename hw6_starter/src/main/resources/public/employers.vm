@@ -14,5 +14,18 @@
         </ol>
     </div>
     #end
+
+<form action="/employers" method="post" onsubmit="return addNewEmployer(name, sector, summary) & validateEmployer()">
+    <fieldset>
+        <div>
+            <label for="addnew">Add new: </label>
+            <input type="text" name="name" placeholder="Required" required />
+            <input type="text" name="sector" id="sector" />
+            <input type="text" name="summary" id="summary" />
+            <button type="submit" id="addNew">&#10004;</button>
+        </div>
+    </fieldset>
+</form>
 <script src="js/employers.js"></script>
+<script src="js/validate.js"></script>
 #parse("public/bottom.vm")

@@ -1,0 +1,26 @@
+h1, h2, h3, h4, h5 {
+    font-family: "Verdana", serif;
+    font-style: oblique;
+    padding: 10px;
+    color: cadetblue;
+}
+
+input {
+    height: 20px;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 2px dashed indigo;
+    background-color: floralwhite;
+    font-size: 16px;
+    padding: 10px 10px;
+}
+
+input[type=text]:focus {
+    border: 2px solid purple;
+}
+
+input[type=text]:hover {
+    border: 3px solid pink;
+}
+
