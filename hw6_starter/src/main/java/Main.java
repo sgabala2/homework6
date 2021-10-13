@@ -55,6 +55,7 @@ public class Main {
 
         // create a new employer
         Spark.post("/employers", (req, res) -> {
+            System.out.println(req);
             String name = req.queryParams("name");
             String sector = req.queryParams("sector");
             String summary = req.queryParams("summary");
