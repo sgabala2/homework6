@@ -6,10 +6,10 @@
     <div class="container">
         <ol>
             #foreach($em in $employers)
-                    <li>
-                        <i>$em.name</i> is a ($em.sector) company: $em.summary.
-                        <button type="button" id="$em.name">X</button>
-                    </li>
+                <li>
+                    <i>$em.name</i> is a ($em.sector) company: $em.summary.
+                    <button type="button" id="$em.name">X</button>
+                </li>
             #end
         </ol>
     </div>
@@ -22,10 +22,10 @@
             <input type="text" name="employerName" placeholder="Required" required  id="employerName"/>
             <input type="text" name="employerSector" id="sector" />
             <input type="text" name="employerSummary" id="summary" />
-            <button type="submit" onclick="addNewEmployer(); {location.reload()}">&#10004</button>
+            <button type="submit">&#10004</button>
         </div>
     </fieldset>
 </form>
 <script src="js/employers.js"></script>
-##<script src="js/validate.js"></script>
+    ##<script src="js/validate.js"></script>
 #parse("public/bottom.vm")
