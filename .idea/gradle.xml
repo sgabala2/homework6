@@ -20,7 +20,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/hw5_starter" />
-        <option name="gradleJvm" value="1.8" />
+        <option name="gradleJvm" value="1.8 (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/hw5_starter" />
@@ -32,7 +32,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/hw6_starter" />
-        <option name="gradleJvm" value="1.8" />
+        <option name="gradleJvm" value="1.8 (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/hw6_starter" />
