@@ -8,6 +8,11 @@ import model.Employer;
 import spark.ModelAndView;
 import spark.Spark;
 import spark.template.velocity.VelocityTemplateEngine;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -17,18 +22,26 @@ public class Main {
 
     static int PORT = 7000;
 
-    private static Dao getEmployerORMLiteDao() throws SQLException {
+    private static Dao getEmployerORMLiteDao() throws URISyntaxException, SQLException {
         final String URI = "jdbc:sqlite:./JBApp.db";
-        ConnectionSource connectionSource = new JdbcConnectionSource(URI);
+        ConnectionSource connectionSource = new JdbcConnectionSource(getPostgresURI());
         TableUtils.createTableIfNotExists(connectionSource, Employer.class);
         return DaoManager.createDao(connectionSource, Employer.class);
+    }
+
+    private static String getPostgresURI() throws URISyntaxException {
+        String databaseUrl = System.getenv("DATABASE_URL");
+        URI dbUri = new URI(databaseUrl);
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+        return "jdbc:postgresql://" + dbUri.getHost() + ':'
+            + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
     }
 
     public static void main(String[] args) {
 
         Spark.port(getPort());
         Spark.staticFiles.location("/public");
-
 
         // render and return login/homepage
         Spark.get("/", (req, res) -> {
