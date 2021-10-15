@@ -15,6 +15,8 @@ import java.util.Map;
 
 public class Main {
 
+    static int PORT = 7000;
+
     private static Dao getEmployerORMLiteDao() throws SQLException {
         final String URI = "jdbc:sqlite:./JBApp.db";
         ConnectionSource connectionSource = new JdbcConnectionSource(URI);
@@ -24,8 +26,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        final int PORT_NUM = 7000;
-        Spark.port(PORT_NUM);
+        Spark.port(getPort());
         Spark.staticFiles.location("/public");
 
 
@@ -83,5 +84,13 @@ public class Main {
             return new Gson().toJson("{}");
         });
 
+    }
+
+    private static int getPort() {
+        String herokuPort = System.getenv("PORT");
+        if (herokuPort != null) {
+            PORT = Integer.parseInt(herokuPort);
+        }
+        return PORT;
     }
 }
