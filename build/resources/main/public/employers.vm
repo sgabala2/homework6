@@ -1,0 +1,31 @@
+#set( $title = "Show Employers" )
+#parse("public/top.vm")
+<body>
+    #if ($employers)
+    <h2>List of all employers:</h2>
+    <div class="container">
+        <ol>
+            #foreach($em in $employers)
+                <li>
+                    <i>$em.name</i> is a ($em.sector) company: $em.summary.
+                    <button type="button" id="$em.name">X</button>
+                </li>
+            #end
+        </ol>
+    </div>
+    #end
+
+<form action="/" method="post" onsubmit="addNewEmployer();">
+    <fieldset>
+        <div>
+            <label for="addnew">Add new: </label>
+            <input type="text" name="employerName" placeholder="Required" required  id="employerName"/>
+            <input type="text" name="employerSector" id="sector" />
+            <input type="text" name="employerSummary" id="summary" />
+            <button type="submit">&#10004</button>
+        </div>
+    </fieldset>
+</form>
+<script src="js/employers.js"></script>
+    ##<script src="js/validate.js"></script>
+#parse("public/bottom.vm")

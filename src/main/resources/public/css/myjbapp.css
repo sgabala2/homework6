@@ -1,0 +1,89 @@
+h1, h2, h3, h4, h5 {
+    font-family: "Verdana", serif;
+    font-style: oblique;
+    padding: 10px;
+    color: cadetblue;
+}
+
+input {
+    height: 10px;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 2px dashed indigo;
+    background-color: floralwhite;
+    font-size: 16px;
+    padding: 10px 10px;
+}
+
+input[type=text]:focus {
+    border: 2px solid purple;
+}
+
+input[type=text]:hover {
+    border: 3px solid pink;
+}
+
+/*form button, form input[type=submit] {*/
+/*    background: lightpink ;*/
+/*    color: deeppink;*/
+/*    font-family: "Noto Sans Shavian", serif ;*/
+/*    font-weight: bolder;*/
+/*    font-size: 20px;*/
+/*    padding: 25px;*/
+/*    border-radius: 12px;*/
+/*    margin:0 auto;*/
+/*    display:block;*/
+/*}*/
+
+button[type="button"] {
+     border-radius: 50%;
+     background-color: red;
+     color: white;
+}
+
+button {
+    background-color: orange;
+    color: darkred;
+}
+
+button[type="submit"] {
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+}
+
+label {
+    /*border-bottom: indigo solid 5px;*/
+    padding: 10px;
+    font-size: 20px;
+    color: steelblue;
+}
+
+/* unvisited link */
+a:link {
+    color: blue;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+/* mouse over link */
+a:hover {
+    color: purple;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+/* selected link */
+a:active {
+    color: orange;
+    padding: 10px 20px;
+    text-align: center;
+}
