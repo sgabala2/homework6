@@ -23,7 +23,6 @@ public class Main {
     static int PORT = 7000;
 
     private static Dao getEmployerORMLiteDao() throws URISyntaxException, SQLException {
-        final String URI = "jdbc:sqlite:./JBApp.db";
         ConnectionSource connectionSource = new JdbcConnectionSource(getPostgresURI());
         TableUtils.createTableIfNotExists(connectionSource, Employer.class);
         return DaoManager.createDao(connectionSource, Employer.class);
@@ -31,6 +30,10 @@ public class Main {
 
     private static String getPostgresURI() throws URISyntaxException {
         String databaseUrl = System.getenv("DATABASE_URL");
+        if (databaseUrl == null) {
+            return "jdbc:sqlite:./JBApp.db";
+        }
+
         URI dbUri = new URI(databaseUrl);
         String username = dbUri.getUserInfo().split(":")[0];
         String password = dbUri.getUserInfo().split(":")[1];
