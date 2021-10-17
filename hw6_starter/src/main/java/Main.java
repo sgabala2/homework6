@@ -35,7 +35,7 @@ public class Main {
         String username = dbUri.getUserInfo().split(":")[0];
         String password = dbUri.getUserInfo().split(":")[1];
         return "jdbc:postgresql://" + dbUri.getHost() + ':'
-            + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
+                + dbUri.getPort() + "/" + dbUri.getPath() + "?user=" + username + "&password=" + password;
     }
 
     public static void main(String[] args) {
